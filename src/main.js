@@ -1,75 +1,28 @@
-const form = document.getElementById("form");
-const textInput = document.getElementById("text");
-const amountInput = document.getElementById("amount");
-const transactionsList = document.getElementById("transactions");
-const balanceEl = document.getElementById("balance");
-const incomeEl = document.getElementById("income");
-const expenseEl = document.getElementById("expense");
+import { setIncome } from "./store/transactionStore.js";
+import { initForm } from "./components/form.js";
+import { renderTransactions } from "./components/transactionList.js";
+import { getFormattedDate } from "./utils/date.js";
 
-let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+const incomeBtn = document.getElementById("incomeBtn");
+const expenseBtn = document.getElementById("expenseBtn");
+const dateEl = document.getElementById("date");
 
-function addTransaction(e) {
-  e.preventDefault();
+// date
+dateEl.textContent = getFormattedDate();
 
-  const text = textInput.value.trim();
-  const amount = +amountInput.value;
+// toggle
+incomeBtn.addEventListener("click", () => {
+  setIncome(true);
+  incomeBtn.classList.add("active");
+  expenseBtn.classList.remove("active");
+});
 
-  if (!text || !amount) return;
+expenseBtn.addEventListener("click", () => {
+  setIncome(false);
+  expenseBtn.classList.add("active");
+  incomeBtn.classList.remove("active");
+});
 
-  const transaction = {
-    id: Date.now(),
-    text,
-    amount,
-  };
-
-  transactions.push(transaction);
-  updateLocalStorage();
-  renderTransactions();
-  form.reset();
-}
-
-function deleteTransaction(id) {
-  transactions = transactions.filter((t) => t.id !== id);
-  updateLocalStorage();
-  renderTransactions();
-}
-
-function renderTransactions() {
-  transactionsList.innerHTML = "";
-
-  transactions.forEach((t) => {
-    const li = document.createElement("li");
-    li.classList.add(t.amount > 0 ? "income" : "expense");
-    li.innerHTML = `
-      ${t.text} <span>${t.amount > 0 ? "+" : ""}₹${Math.abs(t.amount)}</span>
-      <button
-    `;
-    transactionsList.appendChild(li);
-  });
-
-  updateSummary();
-}
-
-function updateSummary() {
-  const amounts = transactions.map((t) => t.amount);
-  const total = amounts.reduce((acc, amt) => acc + amt, 0).toFixed(2);
-  const income = amounts
-    .filter((a) => a > 0)
-    .reduce((acc, val) => acc + val, 0)
-    .toFixed(2);
-  const expense = amounts
-    .filter((a) => a < 0)
-    .reduce((acc, val) => acc + val, 0)
-    .toFixed(2);
-
-  balanceEl.textContent = `₹${total}`;
-  incomeEl.textContent = `₹${income}`;
-  expenseEl.textContent = `₹${Math.abs(expense)}`;
-}
-
-function updateLocalStorage() {
-  localStorage.setItem("transactions", JSON.stringify(transactions));
-}
-
-form.addEventListener("submit", addTransaction);
+// init
+initForm();
 renderTransactions();

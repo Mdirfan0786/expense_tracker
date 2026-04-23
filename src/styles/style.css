@@ -69,7 +69,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 /* Container */
@@ -205,6 +205,7 @@ form button:hover {
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow);
 
+  min-height: 150px;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -281,7 +282,24 @@ form button:hover {
   border-top: 1px solid var(--border-color);
 }
 
-/* TABLET */
+/* Error */
+.error {
+  color: var(--expense-color);
+  font-size: 13px;
+  margin-top: 0.5rem;
+
+  background: #a32d2d14;
+  border: 1px solid var(--expense-color);
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.input-error {
+  border-bottom: 1px solid var(--expense-color);
+}
+
+/* tablet */
 @media (max-width: 768px) {
   body {
     padding: 1rem;
