@@ -1,0 +1,373 @@
+/* Variables */
+:root {
+  /* Backgrounds */
+  --bg-color: #f5f3ef;
+  --card-bg: #ffffff;
+  --summary-bg: #faeeda;
+
+  /* Accents */
+  --accent-bg: #faeeda;
+  --accent-strong: #ba7517;
+
+  /* Text */
+  --text-primary: #2c2c2a;
+  --text-secondary: #5f5e5a;
+
+  /* Status */
+  --income-color: #0f6e56;
+  --expense-color: #a32d2d;
+
+  /* Borders */
+  --border-color: #e5e2db;
+  --accent-color: #ba7517;
+
+  /* Effects */
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --radius: 6px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-bg);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-strong);
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  padding: 2rem;
+  color: var(--text-primary);
+}
+
+/* Header */
+.header {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Summary */
+.summary-card {
+  background: var(--summary-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.summary-card div {
+  flex: 1;
+  text-align: center;
+}
+
+.summary-card p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.summary-card h2 {
+  font-size: 20px;
+}
+
+#income {
+  color: var(--income-color);
+}
+
+#expense {
+  color: var(--expense-color);
+}
+
+.income_border {
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+/* Main layout FIX */
+.main {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Form box */
+.form-box {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+/* Toggle */
+.type-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--accent-bg);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.type-toggle button:hover {
+  opacity: 0.9;
+}
+
+.type-toggle .active {
+  background: var(--accent-strong);
+  color: #fff;
+  border-color: var(--accent-strong);
+  font-weight: 600;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.5rem;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+/* Button */
+form button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border: 1px solid var(--accent-color);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+form button:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* List box */
+.list-box {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* List header */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* List */
+.list {
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  background: var(--bg-color);
+  border-left: 4px solid;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* Status colors */
+.list li.income {
+  border-color: var(--income-color);
+}
+
+.list li.expense {
+  border-color: var(--expense-color);
+}
+
+/* Delete button */
+.delete-btn {
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: var(--expense-color);
+}
+
+/* Empty */
+.empty {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .header {
+    padding: 0.5rem 0;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  /* Summary GRID */
+  .summary-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .summary-card div {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+  }
+
+  .income_border {
+    border: none;
+  }
+
+  /* Main layout stack */
+  .main {
+    flex-direction: column;
+  }
+
+  .form-box,
+  .list-box {
+    width: 100%;
+  }
+
+  /* List scroll adjust */
+  .list-box {
+    max-height: 300px;
+  }
+}
+
+/* mobile  */
+@media (max-width: 480px) {
+  body {
+    padding: 0.8rem;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header span {
+    font-size: 12px;
+  }
+
+  /* Summary */
+  .summary-card {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .summary-card h2 {
+    font-size: 18px;
+  }
+
+  /* Toggle buttons */
+  .type-toggle button {
+    padding: 0.4rem;
+    font-size: 13px;
+  }
+
+  /* Inputs */
+  input {
+    font-size: 14px;
+  }
+
+  /* List items */
+  .list li {
+    font-size: 13px;
+    padding: 0.5rem;
+  }
+}
