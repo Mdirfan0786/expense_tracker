@@ -11,6 +11,7 @@ const form = document.getElementById("form");
 const textInput = document.getElementById("text");
 const amountInput = document.getElementById("amount");
 const errorMsg = document.getElementById("errorMsg");
+const categoryInput = document.getElementById("category");
 
 textInput.addEventListener("input", () => {
   textInput.value = textInput.value.replace(/[^A-Za-z\s]/g, "");
@@ -25,6 +26,7 @@ function addTransaction(e) {
 
   const text = textInput.value.trim();
   const amountValue = +amountInput.value;
+  const category = categoryInput.value;
 
   const isValidText = /^[A-Za-z\s]+$/.test(text);
 
@@ -51,6 +53,7 @@ function addTransaction(e) {
     id: Date.now(),
     text,
     amount,
+    category,
   };
 
   transactions.unshift(transaction);

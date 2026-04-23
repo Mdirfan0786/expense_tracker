@@ -20,11 +20,15 @@ export function renderTransactions() {
     li.classList.add(t.amount > 0 ? "income" : "expense");
 
     li.innerHTML = `
-      <span>${t.text}</span>
-      <span>
-        ${t.amount > 0 ? "+" : "-"}₹${Math.abs(t.amount)}
-        <button data-id="${t.id}" class="delete-btn">x</button>
-      </span>
+        <span>
+        ${t.text} 
+        <small>${t.category}</small>
+        </span>
+
+        <span>
+            ${t.amount > 0 ? "+" : "-"}₹${Math.abs(t.amount)}
+            <button data-id="${t.id}" class="delete-btn">x</button>
+        </span>
     `;
 
     transactionsList.appendChild(li);
