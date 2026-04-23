@@ -168,6 +168,17 @@ form {
   gap: 0.5rem;
 }
 
+label {
+  display: block;
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
 input {
   padding: 0.5rem;
   border: none;
@@ -248,6 +259,20 @@ form button:hover {
   border-color: var(--expense-color);
 }
 
+.list li.empty {
+  display: block;
+  text-align: center;
+
+  border: none;
+  background: transparent;
+
+  padding: 1rem 0;
+  margin: 0;
+
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
 #category {
   width: 100%;
   padding: 0.5rem;
@@ -296,14 +321,6 @@ small {
 
 .delete-btn:hover {
   color: var(--expense-color);
-}
-
-/* Empty */
-.empty {
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-secondary);
-  margin-top: 1rem;
 }
 
 /* Footer */

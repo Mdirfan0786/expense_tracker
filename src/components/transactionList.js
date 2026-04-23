@@ -8,7 +8,7 @@ export function renderTransactions() {
   transactionsList.innerHTML = "";
 
   if (transactions.length === 0) {
-    transactionsList.innerHTML = '<p class="empty">No transactions yet</p>';
+    transactionsList.innerHTML = '<li class="empty">No transactions yet</li>';
     updateSummary();
     updateEntryCount();
     return;
